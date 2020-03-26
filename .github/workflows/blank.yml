@@ -32,10 +32,11 @@ jobs:
     - name: 3. check env
       run: |
         pwd || true
-        which python3 || true && python3 --version || true
         pipdeptree || true
 
     - name: 4. run test
+      with:
+        JUST_FOR_TEST: {{ secrets.JUST_FOR_TEST }}
       run:
         env PYTHONPATH=$(pwd) python3 -m notify.wechat_qy
 
