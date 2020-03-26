@@ -36,7 +36,7 @@ jobs:
 
     - name: 4. run test
       env:
-        JUST_FOR_TEST: {{ secrets.JUST_FOR_TEST }}
+        JUST_FOR_TEST: ${{ secrets.JUST_FOR_TEST }}
       run:
         env PYTHONPATH=$(pwd) python3 -m notify.wechat_qy
 
