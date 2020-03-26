@@ -26,7 +26,6 @@ jobs:
     - name: 3. check env
       run: |
         pwd || true
-#        export -p || true
         which python3 || true && python3 --version || true
         pipdeptree || true
 
