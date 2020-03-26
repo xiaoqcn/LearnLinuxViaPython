@@ -35,10 +35,14 @@ jobs:
         pipdeptree || true
 
     - name: 4. run test
-      env:
-        JUST_FOR_TEST: ${{ secrets.JUST_FOR_TEST }}
       run:
         env PYTHONPATH=$(pwd) python3 -m notify.wechat_qy
+
+    - name: 5. notify
+      env:
+        WECHAT_QY_BOT_KEY: ${{ secrets.WECHAT_QY_BOT_KEY }}
+      run:
+        ./.github/scripts/wechat.sh
 
 
   #build_on_mac:
