@@ -1,6 +1,6 @@
 # LearnLinuxViaPython
 
-* ![CI](https://github.com/xiaoqcn/LearnLinuxViaPython/workflows/CI/badge.svg)
+* ![持续集成-on-mac](https://github.com/xiaoqcn/LearnLinuxViaPython/workflows/测试/badge.svg)
 
 ## 项目简介
 

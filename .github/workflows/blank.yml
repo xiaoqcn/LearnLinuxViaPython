@@ -1,43 +1,41 @@
-# This is a basic workflow to help you get started with Actions
-
-name: 持续集成
-
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
+name: 测试
 on:
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build_on_ubuntu:
     name: 编译-ubuntu
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-
-    # Runs a single command using the runners shell
-    - name: 统计文件数
-      run: wc -l
-
-    # Runs a set of commands using the runners shell
-    - name: Run a multi-line script
+    - name: 1. 安装Python
+      uses: actions/setup-python@v1
+      with:
+        python-vesion: 3.6
+    - name: 2. pip
       run: |
-        export -p
-        whoami
+        python -m pip install --upgrade pip
+        pip install -r requirements.dev.txt
+    - name: 3. check env
+      run: |
+        pwd || true
+        export -p || true
+        which python3 || true
+        python3 --version || true
+        pipdeptree || true
+    - name: 4. run test
+      run: |
+        echo run test
 
-  build_on_mac:
-    name: 编译-on-mac
-    runs-on: macOS-latest
-    # 或macOS-10.14
 
-    steps:
-    - name: 当前系统
-      run: python --version
+  #build_on_mac:
+  #  name: 编译-on-mac
+  #  runs-on: macOS-latest
+  #  # 或macOS-10.14
+  #
+  #  steps:
+  #  - name: 当前系统
+  #    run: python --version
