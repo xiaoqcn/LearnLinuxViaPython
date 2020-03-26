@@ -6,6 +6,6 @@ curl "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=${WECHAT_QY_BOT_KEY}"
    {
         "msgtype": "text",
         "text": {
-            "content": "hello world"
+            "content": "Github Actions Notify"
         }
    }'
