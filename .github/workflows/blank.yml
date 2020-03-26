@@ -35,7 +35,7 @@ jobs:
         pipdeptree || true
 
     - name: 4. run test
-      with:
+      env:
         JUST_FOR_TEST: {{ secrets.JUST_FOR_TEST }}
       run:
         env PYTHONPATH=$(pwd) python3 -m notify.wechat_qy
