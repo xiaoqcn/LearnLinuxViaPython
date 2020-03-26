@@ -12,10 +12,16 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+# 2.7.17 (x64)
+# 3.5.9 (x64)
+# 3.6.10 (x64)
+# 3.7.6 (x64)
+# 3.8.2 (x64)
+
     - name: 1. 安装Python
       uses: actions/setup-python@v1
       with:
-        python-version: 3.6.6
+        python-version: 3.6
 
     - name: 2. pip
       run: |
