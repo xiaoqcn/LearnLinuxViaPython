@@ -10,6 +10,12 @@ install-dev:	## 开发依赖的包
 install: 		## 运行依赖
 	pip install -r requirements.txt
 
+e1:		## demo1
+	python3 -m learn_epoll.demo_01
+
+e2:		## demo2
+	python3 -m learn_epoll.demo_psutil
+
 
 
 .PHONY: help
