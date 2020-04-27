@@ -39,6 +39,12 @@ def master():
     print("done")
 
 
+def insert_error():
+    _coll = _client["test"]["test"]
+    _coll.insert_one({"_id": 3, "tagname": "dup"})
+
+
 if __name__ == "__main__":
-    master()
+    insert_error()
+    # master()
     # main()

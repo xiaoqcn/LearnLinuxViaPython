@@ -19,6 +19,12 @@ e2:		## demo2
 e3:		## demo3
 	python3 -m learn_epoll.demo_simple
 
+e5:		## multi process
+	nohup python3 -m learn_epoll.multi_process 1>>1.txt 2>>2.txt &
+
+e5s:	## 停止
+	cat ~/demo.pid|xargs kill -15
+
 
 
 .PHONY: help
